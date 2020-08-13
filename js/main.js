@@ -12,7 +12,7 @@
   const inputForm = document.getElementById('inputForm');
 
   // 子供の人数カウント
-  let childNumber = 0;
+  let childNumber = 1;
 
   // 日付データ
   const today = new Date();
@@ -63,9 +63,13 @@
 
   // 「子供を追加」クリックイベント
   addChild.addEventListener('click', () => {
+    if(childNumber === 10){
+      alert('登録できる子供の数は10人までです。')
+      return;
+    }
     const addP = document.createElement('p');//pを作成
     childNumber++;//子供人数カウントを更新
-    addP.textContent = `${childNumber + 1}人目の子供の生年月日`;//テキストを追加
+    addP.textContent = `${childNumber}人目の子供の生年月日`;//テキストを追加
     // selectを作成
     const addYear = document.createElement('select');
     const addMonth = document.createElement('select');
@@ -84,9 +88,9 @@
     inputForm.appendChild(addMonth);
     inputForm.appendChild(addDate);
     // オプション作成関数を実行
-    createOption('year', childNumber + 2, 1900, thisYear, thisYear);
-    createOption('month',childNumber + 2,  1, 12, 1);
-    createOption('date',childNumber + 2,  1, datesOfYear[thisMonth - 1], 1);
+    createOption('year', childNumber + 1, 1900, thisYear, thisYear);
+    createOption('month',childNumber + 1,  1, 12, 1);
+    createOption('date',childNumber + 1,  1, datesOfYear[thisMonth - 1], 1);
     // 日数変更関数を実行し追加分にも反映
     optionReload();
   })
