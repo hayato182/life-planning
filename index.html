@@ -9,8 +9,7 @@
 </head>
 <body>
   <main>
-
-    <div id="inputForm">
+    <div id="inputForm" class="inputForm">
 
       <p>お父さんの生年月日</p>
       <select class="year"></select>
@@ -31,7 +30,27 @@
     <p id="addChild">子供を追加</p>
     <p id="signUp">年齢を登録する</p>
 
+    <div id="d_none_first">
+      <div class="serchForm">
+        <select id="who">
+        </select>
+        が
+        <select id="when">
+        </select>
+        の時
+      </div>
+      <p id="submit">計算</p>
+    </div>
+
+    <div id="result">
+      <div id="resultContent"></div>
+      <button id="modalClose">閉じる</button>
+    </div>
+    <div id="mask"></div>
+
+
   </main>
-  <script src="js/main.js"></script>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
